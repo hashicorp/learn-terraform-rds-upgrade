@@ -22,8 +22,12 @@ module "vpc" {
   enable_dns_support   = true
 }
 
+resource "random_pet" "name" {
+  length = 1
+}
+
 resource "aws_db_subnet_group" "education" {
-  name       = "education"
+  name       = "${random_pet.name.id}-education"
   subnet_ids = module.vpc.public_subnets
 
   tags = {
@@ -32,7 +36,7 @@ resource "aws_db_subnet_group" "education" {
 }
 
 resource "aws_security_group" "rds" {
-  name   = "education_rds"
+  name   = "${random_pet.name.id}_education_rds"
   vpc_id = module.vpc.vpc_id
 
   ingress {
@@ -55,7 +59,7 @@ resource "aws_security_group" "rds" {
 }
 
 resource "aws_db_parameter_group" "education" {
-  name_prefix = "education"
+  name_prefix = "${random_pet.name.id}-education"
   family      = "postgres12"
 
   parameter {
@@ -66,7 +70,7 @@ resource "aws_db_parameter_group" "education" {
 }
 
 resource "aws_db_instance" "education" {
-  identifier                  = "education"
+  identifier                  = "${random_pet.name.id}education"
   instance_class              = "db.t3.micro"
   allocated_storage           = 10
   apply_immediately           = true
