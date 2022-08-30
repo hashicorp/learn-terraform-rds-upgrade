@@ -1,5 +1,4 @@
 # Learn Terraform - RDS Major Version Upgrade
 
-This is a companion repository for the [Perform RDS Major Version Upgrade
-guide](https://learn.hashicorp.com/tutorials/terraform/rds-upgrade) on [HashiCorp
-Learn](https://learn.hashicorp.com/). 
+This repo is a companion repo to the [Learn Terraform - RDS Major Version Upgrade](https://developer.hashicorp.com/terraform/tutorials/aws/rds-upgrade) tutorial.
+It contains Terraform configuration you can use to learn how to manage your Amazon Relational Database Service (RDS) instances over their lifecycle. 
