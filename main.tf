@@ -63,7 +63,7 @@ resource "aws_security_group" "rds" {
 
 resource "aws_db_parameter_group" "education" {
   name_prefix = "${random_pet.name.id}-education"
-  family      = "postgres12"
+  family      = "postgres15"
 
   parameter {
     name  = "log_connections"
@@ -78,7 +78,7 @@ resource "aws_db_instance" "education" {
   allocated_storage           = 10
   apply_immediately           = true
   engine                      = "postgres"
-  engine_version              = "12.7"
+  engine_version              = "15"
   username                    = "edu"
   password                    = var.db_password
   allow_major_version_upgrade = true
